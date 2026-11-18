@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffb7d5">
+<title>Happy Birthday Juana! 🎀</title>
+<style>
+:root{--pink:#ffb7d5;--pink2:#ffe1ef;--purple:#cbb7ff;--ink:#4b3158;--cream:#fffaf4}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);background:radial-gradient(circle at 10% 10%,#fff 0 3px,transparent 4px),linear-gradient(145deg,#fff4fa,#f4efff 55%,#fff8e9);background-size:34px 34px,auto;overflow-x:hidden}
+main{width:min(920px,92%);margin:34px auto 60px;text-align:center}
+.tag{display:inline-block;padding:8px 16px;border-radius:99px;background:#fff9;box-shadow:0 5px 20px #7c4b8a18;font-size:.88rem;font-weight:700;letter-spacing:.04em}
+h1{font-size:clamp(2.5rem,8vw,5.6rem);line-height:.98;margin:22px 0 12px;color:#ec6ca8;text-shadow:3px 4px 0 #fff}
+h1 span{display:block;color:#9775dc}
+.subtitle{font-size:clamp(1rem,3vw,1.25rem);margin:0 auto 25px;max-width:600px}
+.machine{width:min(390px,92%);margin:30px auto 24px;padding:18px;border:7px solid #fff;border-radius:34px;background:linear-gradient(145deg,#ffcee3,#d8c9ff);box-shadow:0 18px 45px #805a9a30, inset 0 0 0 2px #ed9cc6}
+.machine-top{background:#fff9;border-radius:20px;padding:18px 10px 14px;border:2px solid #fff}
+.machine-top strong{font-size:1.05rem}
+.window{margin:15px auto 10px;width:90%;min-height:150px;border:5px solid #fff;border-radius:18px;background:linear-gradient(#fff8,#fff8),repeating-linear-gradient(135deg,#ffd9e9 0 14px,#e9ddff 14px 28px);display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;padding:18px}
+.candy{font-size:2.5rem;filter:drop-shadow(0 3px 2px #765)}
+.slot{margin:12px auto 0;width:75%;padding:12px;border-radius:12px;background:#795c91;color:white;font-weight:800;letter-spacing:.12em}
+.message{background:#fffdfb;border:2px dashed #f3a2c8;border-radius:24px;padding:24px 22px;max-width:650px;margin:25px auto;box-shadow:0 10px 30px #805a9a12}
+.message h2{margin:0 0 10px;color:#a17cdb;font-size:1.7rem}
+.message p{font-size:1.08rem;line-height:1.65;margin:8px 0}
+button{border:0;border-radius:999px;padding:15px 24px;background:linear-gradient(100deg,#f27eae,#a58ae9);color:white;font-size:1rem;font-weight:800;box-shadow:0 8px 20px #a16aa844;cursor:pointer;transition:transform .15s}
+button:active{transform:scale(.97)}
+footer{font-size:.9rem;opacity:.7;margin-top:26px}
+.float{position:fixed;top:-30px;pointer-events:none;z-index:5;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(650deg);opacity:.15}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<main>
+  <div class="tag">🍬 DEIN KLEINER GEBURTSTAGS-SNACK 🍬</div>
+  <h1>Happy Birthday <span>Juana!</span></h1>
+
+
+  <section class="machine" aria-label="Bunter Mini-Snackautomat">
+    <div class="machine-top">
+      <strong>JUANA'S HAPPY SNACKS</strong>
+      <div class="window">
+        <span class="candy">🍭</span><span class="candy">🍬</span><span class="candy">🍫</span>
+        <span class="candy">🍓</span><span class="candy">🧁</span><span class="candy">🍩</span>
+      </div>
+      <div class="slot">★ Zum 18. Geburtstag★</div>
+    </div>
+  </section>
+
+  <section class="message">
+    <h2>Für dich, Juana! 🎀</h2>
+    <p>Wir wünschen dir einen wunderschönen 18. Geburtstag, ganz viele tolle Momente und natürlich jede Menge Süßigkeiten!</p>
+    <p>Bleib genauso, wie du bist. Lass dich feiern! 🥳</p>
+    <p><strong>Wir haben dich lieb! 💕</strong></p>
+  </section>
+
+  <button id="surprise">✨ Überraschung öffnen ✨</button>
+  <p id="surpriseText" hidden style="font-weight:800;color:#a16fce;margin-top:16px">🎉 Heute gibt's keine Kalorien, nur Geburtstagsglück! 🍰</p>
+  <footer>Mit ganz viel Liebe für Juana gemacht 💗</footer>
+</main>
+<script>
+const btn=document.getElementById('surprise'), msg=document.getElementById('surpriseText');
+btn.addEventListener('click',()=>{msg.hidden=false; confetti(65);btn.textContent='🎊 Endlich 18! 🎊';});
+function confetti(n){const bits=['🎉','💖','✨','🍬','🎀','⭐'];for(let i=0;i<n;i++){const el=document.createElement('span');el.className='float';el.textContent=bits[Math.floor(Math.random()*bits.length)];el.style.left=Math.random()*100+'vw';el.style.animationDuration=(2.5+Math.random()*3)+'s';el.style.fontSize=(16+Math.random()*20)+'px';document.body.appendChild(el);setTimeout(()=>el.remove(),6000)}}
+setTimeout(()=>confetti(24),500);
+</script>
+</body>
+</html>
